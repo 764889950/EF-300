@@ -1,0 +1,31 @@
+1、Marlin_main.cpp新增变量
+static char print_end_flag=0;//新增，位于G28,M84，2020.6.9
+#define pin_broadcast 12  //新增，作用于MKS BASE D12引脚PB6  
+#define pin_turn_on_off_control  7 //新增，作用于MKS BASE D7引脚（E1)，对应2560芯片第16引脚PH4，2020.6.9
+#define pin_turn_on_off_get 11 //新增，作用于MKS BASE D11引脚PB5
+//arduino2560 管脚对应关系表 https://wenku.baidu.com/view/73b18f25aaea998fcc220e71.html
+static char turn_off_flag=0;//自动关机标识，新增
+static uint16_t turn_off_time=0;//自动关机时间
+static unsigned long t1,t2=0;
+
+2、Marlin_main.cpp中，setup函数新增端口设置pinMode(pin_broadcast,OUTPUT)，该端口作为广播控制端口;
+3、Marlin_main.cpp中，case 28中新增print_end_flag=1;
+4、Marlin_main.cpp中，case 84中新增了语音控制功能(读到G28(轴回零)、M84（电机失能))，turn_off_flag=1;（自动关机使用）;
+5、loop函数中，新增if(turn_off_flag==1)内容，用于自动关机,在Gcode打印文件末尾添加“M500 S10”指令，表示自动关机，S10表示等待的时间是10分钟；，最大值是65535；
+6、新增函数inline void gcode_M870()，用于自动关机控制（Marlin_main.cpp）
+7、loop函数中，新增if(!(digitalRead(pin_turn_on_off_get)))，用于判断开关模块信号
+8、setup函数中，新增如下内容
+  pinMode(pin_broadcast,OUTPUT);//新增2020.6.9
+  digitalWrite(pin_broadcast,HIGH);
+  pinMode(pin_turn_on_off_control,OUTPUT);//新增2020.6.11
+  digitalWrite(pin_turn_on_off_control,LOW);//保持电源控制模块供电
+  pinMode(pin_turn_on_off_get,INPUT_PULLUP);//配置为输入上拉
+
+
+
+配置的端口有pin_broadcast(D12 12)、pin_turn_on_off_control(D7(E1-) 7)、pin_turn_on_off_get(D11 11),端口7是对用的E1端口
+断电续打供电：电源（+5V -> 5V；- ->GND）、信号（EXIO1->D7(E1-)）；
+MP3语音模块：信号（P10->D12;GND->GNG）
+
+智能电源管理模块https://item.taobao.com/item.htm?spm=a230r.1.14.45.68a0252cU8Nj4E&id=574298174046&ns=1&abbucket=16#detail
+开关处于一个常闭的状态
