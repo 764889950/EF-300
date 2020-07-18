@@ -1,0 +1,25 @@
+---- HEATER_2_PIN Matches (24 in 21 files) ----
+Conditionals_post.h (C:\Users\Administrator\Desktop\Marlin1.1.6xyz\Marlin) line 640 :       #define WRITE_HEATER_2(v) WRITE(HEATER_2_PIN, v)
+fastio.h (C:\Users\Administrator\Desktop\Marlin1.1.6xyz\Marlin) line 290 :     #define PWM_CHK_HEATER(p) (p == HEATER_1_PIN || p == HEATER_2_PIN)
+Marlin_main.cpp (C:\Users\Administrator\Desktop\Marlin1.1.6xyz\Marlin) line 11216 :         // PWM for HEATER_2_PIN
+Marlin_main.cpp (C:\Users\Administrator\Desktop\Marlin1.1.6xyz\Marlin) line 11263 :         thermalManager.setTargetHotend(205,HEATER_2_PIN);
+pins.h (C:\Users\Administrator\Desktop\Marlin1.1.6xyz\Marlin) line 299 : #ifndef HEATER_2_PIN
+pins.h (C:\Users\Administrator\Desktop\Marlin1.1.6xyz\Marlin) line 300 :   #define HEATER_2_PIN -1
+pins.h (C:\Users\Administrator\Desktop\Marlin1.1.6xyz\Marlin) line 424 :     #define _H2_PINS HEATER_2_PIN, E2_AUTO_FAN_PIN, marlinAnalogInputToDigitalPin(TEMP_2_PIN),
+pinsDebug_list.h (C:\Users\Administrator\Desktop\Marlin1.1.6xyz\Marlin) line 324 :   REPORT_NAME_DIGITAL(HEATER_2_PIN, __LINE__ )
+pins_3DRAG.h (C:\Users\Administrator\Desktop\Marlin1.1.6xyz\Marlin) line 65 : #define HEATER_2_PIN        6
+pins_AZTEEG_X3_PRO.h (C:\Users\Administrator\Desktop\Marlin1.1.6xyz\Marlin) line 109 : #define HEATER_2_PIN       16
+pins_CHEAPTRONICv2.h (C:\Users\Administrator\Desktop\Marlin1.1.6xyz\Marlin) line 87 : #define HEATER_2_PIN       8
+pins_CNCONTROLS_11.h (C:\Users\Administrator\Desktop\Marlin1.1.6xyz\Marlin) line 66 : #define HEATER_2_PIN       64
+pins_CNCONTROLS_12.h (C:\Users\Administrator\Desktop\Marlin1.1.6xyz\Marlin) line 66 : #define HEATER_2_PIN        6
+pins_ELEFU_3.h (C:\Users\Administrator\Desktop\Marlin1.1.6xyz\Marlin) line 90 : #define HEATER_2_PIN       17 // 12V PWM3
+pins_LEAPFROG.h (C:\Users\Administrator\Desktop\Marlin1.1.6xyz\Marlin) line 78 : #define HEATER_2_PIN       11 // 13
+pins_MEGATRONICS_3.h (C:\Users\Administrator\Desktop\Marlin1.1.6xyz\Marlin) line 122 : #define HEATER_2_PIN        8
+pins_MINIRAMBO.h (C:\Users\Administrator\Desktop\Marlin1.1.6xyz\Marlin) line 105 : #define HEATER_2_PIN        6
+pins_PRINTRBOARD.h (C:\Users\Administrator\Desktop\Marlin1.1.6xyz\Marlin) line 116 : #define HEATER_2_PIN       45   // F7
+pins_PRINTRBOARD_REVF.h (C:\Users\Administrator\Desktop\Marlin1.1.6xyz\Marlin) line 127 : #define HEATER_2_PIN       45   // F7
+pins_RAMBO.h (C:\Users\Administrator\Desktop\Marlin1.1.6xyz\Marlin) line 126 : #define HEATER_2_PIN        6
+pins_RUMBA.h (C:\Users\Administrator\Desktop\Marlin1.1.6xyz\Marlin) line 122 : #define HEATER_2_PIN        6
+Planner::check_axes_activity in planner.cpp (C:\Users\Administrator\Desktop\Marlin1.1.6xyz\Marlin) :       analogWrite(HEATER_2_PIN, tail_e_to_p_pressure);
+static_assert in SanityCheck.h (C:\Users\Administrator\Desktop\Marlin1.1.6xyz\Marlin) :       #error "HEATER_2_PIN not defined for this board."
+Temperature::init in temperature.cpp (C:\Users\Administrator\Desktop\Marlin1.1.6xyz\Marlin) :     SET_OUTPUT(HEATER_2_PIN);
